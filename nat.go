@@ -70,6 +70,9 @@ func DiscoverNATs(ctx context.Context) <-chan NAT {
 				if !ok {
 					natpmp = nil
 				}
+			case <-ctx.Done():
+				// timeout.
+				return
 			}
 			if ok {
 				select {
