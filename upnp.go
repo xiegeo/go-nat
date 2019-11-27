@@ -265,7 +265,7 @@ func (u *upnp_NAT) AddPortMapping(protocol string, internalPort int, description
 	}
 
 	externalPort := internalPort
-	for i := 0; i < 3; i++ {
+	for i := 0; i < 1; i++ {
 		err = u.c.AddPortMapping("", uint16(externalPort), mapProtocol(protocol), uint16(internalPort), ip.String(), true, description, timeoutInSeconds)
 		if err == nil {
 			u.ports[internalPort] = externalPort
